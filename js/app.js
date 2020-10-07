@@ -13,7 +13,7 @@ const navagation = () =>{
         const sectionID = section.id;
         const sectionData = section.dataset.nav;
         
-        navList += `<li><a class="menu__link" href="#${sectionID}">${sectionData}</a></li>`
+        navList += `<li><a class='menu__link' id='list-${sectionID}'>${sectionData}</a></li>`
     });
 
     //appending to nav
@@ -38,7 +38,6 @@ const sectionObserver = new IntersectionObserver(function(
             entry.target.classList.add('active-class');
         } else {
         entry.target.classList.remove('active-class');
-        //sectionObserver.unobserve(entry.target);//to stop observing once it is done
         }
     });
 }, sectionOptions);
@@ -47,3 +46,24 @@ const sectionObserver = new IntersectionObserver(function(
 sections.forEach(section =>{
     sectionObserver.observe(section);
 });
+
+//Scroll to Anchor
+
+    const lists = document.querySelectorAll('a');
+  
+    lists.forEach( a =>{
+        a.addEventListener('click', () =>{
+          window.scrollBy({
+              top: 700,
+              left: 0,
+              behavior: 'smooth'
+          })
+        });
+    })
+
+      
+
+
+
+   
+            
